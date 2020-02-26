@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{%load static%}
+
+{% block content %}
+    <div class= "section-top">
+        <img src="{% static 'static_dev/image/slider0.jpg' %}" class = "img-responsive width" width='100%'>
+
+    </div>
+    <div class= "section section-1 new_films-container">
+        <div class = "container">
+          <h2 class="text-align">Новые фильмы</h2>
+            <div class="row">
+                {% for film_image in films_images%}
+                {%include 'Subscribers/film_item.html' %}
+                {%endfor%}
+                
+
+            </div>
+         </div>
+    </div>
+    <div class= "section section-coming_soon">
+        <div>
+            <h3>Coming soon</h3>
+        </div>
+    </div>
+    <div class= "section section-2 fear-container">
+        <div class = "container">
+            <h2 class="text-align">Ужасы</h2>
+            <div class="row">
+                {% for film_image in films_images_fear%}
+                {%include 'Subscribers/film_item.html' %}
+                {%endfor%}
+                
+
+            </div>
+         </div>
+    </div>
+    <div class= "section section-3 comedy-container">
+        <div class = "container">
+            <h2 class="text-align">Комедии</h2>
+            <div class="row">
+                {% for film_image in films_images_comedy %}
+                {%include 'Subscribers/film_item.html' %}
+                {%endfor%}
+                
+
+            </div>
+         </div>
+    </div>
+{% endblock %}

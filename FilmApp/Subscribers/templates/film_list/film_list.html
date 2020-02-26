@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{%load static%}
+
+{% block content %}
+   
+    <div class= "section section-1 new_films-container">
+        <div class = "container">
+          <h2 class="text-align">Фильмы</h2>
+            <div class="row">
+                {% for film_image in films_images%}
+                {%include 'film_item.html' %}
+                {%endfor%}
+                
+
+            </div>
+         </div>
+    </div>
+    <div class= "section section-coming_soon">
+        <div>
+            <h3></h3>
+        </div>
+    </div>
+    
+    
+{% endblock %}

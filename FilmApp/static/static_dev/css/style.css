@@ -1,0 +1,105 @@
+.html,body{
+    height: 100%;
+    max-height: 100%;
+    font-family: 'Roboto' , sans-serif;
+    background-color: #edeef0;
+
+}
+.navbar{
+    margin-bottom: 0;
+    
+}
+.navbar-top{
+    height: 20px;
+    background-color: rgb(45, 46, 45);
+}
+
+.wrapper {
+    min-height: 100%;
+}
+
+.wrapper-content{
+    overflow:auto;
+    padding-bottom: 180px;
+    
+}
+
+.footer{
+    position: relative;
+    margin-top: -180px;
+    background-color: white;
+    height:180px;
+    clear: both;
+}
+
+.margin-top{
+    margin-top: 70px;
+}
+
+.section-top{
+    margin:20px;
+}
+.product-item{
+    position:relative;
+    height : 450px;
+    background-color:white;
+    border: 1px,solid lightgray;
+    padding: 5px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.add-to-cart-btn{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    bottom: 15px;
+}
+.text-align{
+    text-align: center;
+    margin-top:35px;
+    margin-bottom: 25px;
+
+}
+
+.section-coming_soon{
+    height: 300px;
+    background-color: antiquewhite;
+    text-align:center;
+}
+
+.product-description-tabs{
+    margin: 100px;
+}
+
+.film-image-item{
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+.btn-add{
+    margin:5px;
+}
+.review-container{
+
+    position: relative;
+    margin-right: 10px;
+    padding: 15px,10px;
+    width:200px;
+
+}
+
+.review-items{
+
+    position: absolute;
+    top: 28px;
+    width: 100%;
+    background-color: #98a8b9;
+    z-index:10;
+    padding: 10px;
+
+
+}
+.form-error{
+    color:red;
+}

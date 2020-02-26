@@ -1,0 +1,17 @@
+<div class="col-lg-3">
+    <div class ="product-item">
+        <div>
+            <a href= "{% url 'film' film_image.film.id %}">
+ 
+            <img src="{{film_image.image.url}}" class= "img-responsive">
+
+        </div>
+        <h4>{{film_image.film.title}}</h4>
+        <p>{{film_image.film.description|truncatechars_html:50}}</p>
+        <div class='add-to-cart-btn'>
+            <button class="btn btn-danger">
+                Добавить в избранное
+            </button>
+        </div>
+    </div>
+</div>
