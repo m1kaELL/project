@@ -98,7 +98,7 @@
     display: block;
 }
 
-.review-container:active .reivew-items,
+.review-container:active .review-items,
 .review-items:active {
     display: block;
 }
