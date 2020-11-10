@@ -80,20 +80,44 @@
 .btn-add{
     margin:5px;
 }
-.review-container{
-
+.review-container {
     position: relative;
     margin-right: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
     padding: 15px,10px;
-    width:200px;
-
+    width: 200px;
+    height: 100%;
+    text-align:right;
+}
+.review-items{
+    display:none;
+}
+.review-container:hover .review-items,
+.review-items:hover {
+    display: block;
 }
 
+.review-container:active .reivew-items,
+.review-items:active {
+    display: block;
+}
+.visibility-hidden {
+    visibility: hidden !important;
+}
+
+.form-input-type-text {
+    width: 60px;
+    border: 1px solid #b1b8c2;
+    height: fit-content;
+    margin-left:4px;
+    margin-right:4px;
+}
 .review-items{
 
     position: absolute;
-    top: 28px;
-    width: 100%;
+    top: 40px;
+    width: auto;
     background-color: #98a8b9;
     z-index:10;
     padding: 10px;
@@ -102,4 +126,9 @@
 }
 .form-error{
     color:red;
+}
+.font-style-Arial {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: larger;
+    display: inline-flex;
 }

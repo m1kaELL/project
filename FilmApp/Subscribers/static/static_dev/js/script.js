@@ -1,6 +1,18 @@
-$(document).ready(function(){
+var basket = [];
+
+$(document).ready(function () {
     var form = $('#form_review_film');
-    console.log(form);
+    console.log(basket);
+    console.log(localStorage.getItem("basket"))
+    if (basket.length == 0) {
+        $(".review-items").addClass("visibility-hidden");
+    }
+    if (localStorage.getItem("basket")) {
+        basket = JSON.parse(localStorage.getItem("basket"))
+        drawBasket()
+        //addButtonBuy()
+    }
+   
 
     function review_Updating(film_id,number,is_delete){
 
@@ -51,49 +63,69 @@ $(document).ready(function(){
         })
 
     }
-
     form.on("submit" , function(e){
         e.preventDefault();
         console.log('123');
-
-        var number = $("#review").val();
-        console.log(number);
+        var review = $("#review").val();
+        console.log(review);
         var submit_btn = $("#submit_btn");
         var film_id = submit_btn.data("film_id");
         var film_name = submit_btn.data("film_name");
         console.log(film_id);
         console.log(film_name);
 
-       
+        var newItem = true
 
-        
-        review_Updating(film_id,number,is_delete=false);
+        if (newItem) {
+            basket.push({
+                id: film_id,
+                name: film_name,
+                review: review
+            })
+
+        }
+        localStorage.setItem("basket", JSON.stringify(basket))
+        console.log(basket)
+        drawBasket()
+        //review_Updating(film_id,number,is_delete=false);
         
     
     })
+    function drawBasket() {
+        $(".review-items").html("")
+        basket.forEach((itemInBasket, index) => {
+            if (itemInBasket) {
+                $(".review-items").removeClass("visibility-hidden");
+                $(".review-items").append('<li class="font-style-Arial">' + itemInBasket.name +
+                    '<br><input class = "form-input-type-text product_number" type="text" maxlength = "5" value =' + itemInBasket.review + ' disabled>' +
+                    '<a class= "delete-item" href="" data-basket_index="' + index + '"> x</a>' + '</li>');
+            }
+
+        })
+        $("#review_total_number").text("(" + basket.length + ")")
+
+
+    } 
 
     function showingReview(){
-        $('.review-items').removeClass("d-none");
+        $('.review-items').toggleClass("d-none");
 
     }
 
-    $(".review-container").on("click",function(e){
+    $(".my_basket").on("click",function(e){
         e.preventDefault();
         showingReview();
-    })
-    $(".review-container").mouseover(function(){
-        showingReview();
-    })
-
-    $(".review-container").mouseout(function(){
-        $('.review-items').addClass("d-none");
     })
     $(document).on("click", ".delete-item", function(e){
         e.preventDefault();
-        /* $(this).closest("li").remove();*/
-        film_id=$(this).data("film_id");
-        number = 0;
-        review_Updating(film_id,number,is_delete=true);
+        basket_index = $(this).data("basket_index");
+        console.log(basket_index);
+        basket.splice(basket_index, 1);
+        if (basket.length == 0) {
+            $(".review-items").addClass("visibility-hidden");
+        }
+        drawBasket()
+        localStorage.setItem("basket", JSON.stringify(basket))
 
     })
 })

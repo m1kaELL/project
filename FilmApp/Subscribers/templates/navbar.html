@@ -32,22 +32,13 @@
       <ul class= "nav navbar-nav">
         <li >
           <div class="review-container">
-            <a href = "">Мои отзывы<span id="total_review">
-              {% if total_review%}
-                ({{total_review}})
-              {%else %}
-                (0)
-              {%endif %}
-              </span>
-            </a>
-            <div class="review-items d-none">
+              <a href="" class="my_basket">
+                  <b>Мои отзывы</b> <span id="review_total_number">
+                      (0)
+                  </span>
+              </a>
+            <div class="review-items ">
               <ul class="">
-                {% for film_rev in films_review%}
-                <li> {{film_rev.film.title}} 
-                  {{film_rev.film.genre}} 
-                  <a class="delete-item" href="" data-film_id = "{{film_rev.id}}"> x <a></a>
-                </li>
-                {%endfor %}
               </ul>
             </div>
           </div>
